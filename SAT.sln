@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1401
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAT.UI.Secured", "SAT.UI.Secured\SAT.UI.Secured.csproj", "{DD4E9834-1055-4619-A8EC-38C810473D2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAT.DATA.EF", "SAT.DATA.EF\SAT.DATA.EF.csproj", "{F44F19F7-D0CB-4B9E-904E-12B948AB7A82}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD4E9834-1055-4619-A8EC-38C810473D2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD4E9834-1055-4619-A8EC-38C810473D2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD4E9834-1055-4619-A8EC-38C810473D2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD4E9834-1055-4619-A8EC-38C810473D2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F44F19F7-D0CB-4B9E-904E-12B948AB7A82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F44F19F7-D0CB-4B9E-904E-12B948AB7A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F44F19F7-D0CB-4B9E-904E-12B948AB7A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F44F19F7-D0CB-4B9E-904E-12B948AB7A82}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {99A31F81-1A01-4082-8071-3438C0FBBCBF}
+	EndGlobalSection
+EndGlobal
