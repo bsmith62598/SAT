@@ -26,36 +26,20 @@
         </div>
 
         <div class="wrapper row1">
-            <nav id="mainav" class="hoc clear">
-                <ul class="clear">
+            <div id="LoginPartial" class="clear">
+                @Html.Partial("_LoginPartial")
+            </div>
+            <nav id="mainav" class="hoc">
+                <ul class="text-center">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Course", "Index", "Cours")</li>
                     <li>
-                        <a class="drop" href="#">Dropdown</a>
+                        <a class="drop" href="#">Students</a>
                         <ul>
-                            <li><a href="#">Level 2</a></li>
-                            <li>
-                                <a class="drop" href="#">Level 2 + Drop</a>
-                                <ul>
-                                    <li><a href="#">Level 3</a></li>
-                                    <li><a href="#">Level 3</a></li>
-                                    <li><a href="#">Level 3</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Level 2</a></li>
+                            <li>@Html.ActionLink("Student", "Index", "Students")</li>
+                            <li>@Html.ActionLink("Student Statuses", "Index", "StudentStatus") </li>
                         </ul>
                     </li>
-                    <li><a href="#">Link Text</a></li>
-                    <li><a href="#">Link Text</a></li>
-                    <li><a href="#">Link Text</a></li>
-                    @if (!User.IsInRole("Admin") || !User.IsInRole("Student"))
-                    {
-                        <li>@Html.ActionLink("Login", "Login", "Account")</li>
-                    }
-                    @if (User.IsInRole("Admin") || User.IsInRole("Student"))
-                    {
-                        <li></li>
-                    }
-                    @* TODO - Finish logout functionality *@
                 </ul>
             </nav>
         </div>
