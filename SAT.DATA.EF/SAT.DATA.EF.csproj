@@ -57,6 +57,11 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Metadata\CourseMetaData.cs" />
+    <Compile Include="Metadata\EnrollmentMetaData.cs" />
+    <Compile Include="Metadata\ScheduledClassMetaData.cs" />
+    <Compile Include="Metadata\ScheduledClassStatusMetaData.cs" />
+    <Compile Include="Metadata\StudentMetaData.cs" />
+    <Compile Include="Metadata\StudentStatusMetaData.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

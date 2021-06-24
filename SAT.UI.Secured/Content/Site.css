@@ -44,3 +44,8 @@ input[type="checkbox"].input-validation-error {
     margin-left: auto;
     padding: 0px;
 }
+
+#LoginPartial{
+    float: right;
+    padding-right: 25px;
+}

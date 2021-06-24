@@ -19,45 +19,42 @@
             <header id="header" class="hoc clear">
                 <div id="logo">
                     <h1>@Html.ActionLink("Silverquill", "Index", "Home")</h1>
-                    <i class="fa fa-ra"></i>
-                    <p>Dapibus metus proin</p>
+
+                    <img src="~/Content/Images/MagicSymbols/orzhovResize (1).png" />
                 </div>
             </header>
         </div>
 
         <div class="wrapper row1">
-            <nav id="mainav" class="hoc clear">
-                <ul class="clear">
+            <div id="LoginPartial" class="clear">
+                @Html.Partial("_LoginPartial")
+            </div>
+            <div id="mainav" class="hoc">
+                <ul class="text-center">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>
-                        <a class="drop" href="#">Dropdown</a>
-                        <ul>
-                            <li><a href="#">Level 2</a></li>
-                            <li>
-                                <a class="drop" href="#">Level 2 + Drop</a>
-                                <ul>
-                                    <li><a href="#">Level 3</a></li>
-                                    <li><a href="#">Level 3</a></li>
-                                    <li><a href="#">Level 3</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Level 2</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Link Text</a></li>
-                    <li><a href="#">Link Text</a></li>
-                    <li><a href="#">Link Text</a></li>
-                    @if (!User.IsInRole("Admin") || !User.IsInRole("Student"))
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                    @if (User.IsInRole("Admin") || User.IsInRole("Scheduling"))
                     {
-                        <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                        <li>@Html.ActionLink("Enrollments", "Index", "Enrollments")</li>
+                        <li>@Html.ActionLink("Scheduled Classes", "Index", "ScheduledClasses")</li>
+                        <li>
+                            <a class="drop" href="#">Students</a>
+                            <ul>
+                                <li>@Html.ActionLink("Students", "Index", "Students")</li>
+                                <li>@Html.ActionLink("Student Status", "Index", "StudentStatus")</li>
+                            </ul>
+                        </li>
                     }
-                    @if (User.IsInRole("Admin") || User.IsInRole("Student"))
+
+                    @if (User.IsInRole("Admin"))
                     {
-                        <li></li>
+                        <li>@Html.ActionLink("Roles", "Index", "RolesAdmin")</li>
+                        <li>@Html.ActionLink("Users", "Index", "UsersAdmin")</li>
+                        <li>@Html.ActionLink("Course", "Index", "Cours")</li>
                     }
-                    @* TODO - Finish logout functionality *@
                 </ul>
-            </nav>
+            </div>
         </div>
 
         @RenderBody()
