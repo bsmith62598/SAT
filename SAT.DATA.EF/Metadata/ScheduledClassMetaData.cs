@@ -10,19 +10,27 @@ namespace SAT.DATA.EF
     [MetadataType(typeof(ScheduledClassMetaData))]
     public partial class ScheduledClass
     {
+        public string ClassDesc
+        {
+            get
+            {
+                return StartDate + " " + Cours.CourseName + " " + Location;
+            }
+        }
+    }
 
     public class ScheduledClassMetaData
     {
         [Required]
-        [Display(Name = "Scheduled Class ID")]
+        [Display(Name ="Scheduled Class ID")]
         public int ScheduledClassId { get; set; }
 
         [Required]
-        [Display(Name = "Course ID")]
+        [Display(Name ="Course ID")]
         public int CourseId { get; set; }
 
         [Required]
-        [Display(Name = "Start Date")]
+        [Display(Name ="Start Date")]
         public DateTime StartDate { get; set; }
 
         [Required]
@@ -30,16 +38,13 @@ namespace SAT.DATA.EF
         public DateTime EndDate { get; set; }
 
         [Required]
-        [Display(Name = "Instructor Name")]
+        [Display(Name ="Instructor Name")]
         public string InstructorName { get; set; }
 
         [Required]
-        [Display(Name = "Location")]
         public string Location { get; set; }
 
         [Required]
-        [Display(Name = "SCSID")]
         public int SCSID { get; set; }
-        }
     }
 }

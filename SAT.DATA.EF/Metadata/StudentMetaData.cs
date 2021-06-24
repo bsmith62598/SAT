@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace SAT.DATA.EF
 {
-    class StudentMetaData
+    [MetadataType(typeof(StudentMetaData))]
+    public partial class Student { }
+
+    public class StudentMetaData
     {
         [Required]
         [Display(Name = "Student ID")]
@@ -20,41 +23,31 @@ namespace SAT.DATA.EF
         [Required]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
-
-        [Required]
-        [Display(Name = "Major")]
+        
         public string Major { get; set; }
 
         [Required]
-        [Display(Name = "Address")]
         public string Address { get; set; }
 
         [Required]
-        [Display(Name = "City")]
         public string City { get; set; }
 
         [Required]
-        [Display(Name = "State")]
+        [Display(Name ="State: 2 digit code")]
         public string State { get; set; }
 
         [Required]
-        [Display(Name = "Zip Code")]
+        [Display(Name ="Zip Code")]
         public string ZipCode { get; set; }
 
-        [Required]
-        [Display(Name = "Phone")]
         public string Phone { get; set; }
 
         [Required]
-        [Display(Name = "Email")]
         public string Email { get; set; }
-
-        [Required]
-        [Display(Name = "Photo Url")]
+      
         public string PhotoUrl { get; set; }
 
         [Required]
-        [Display(Name = "SSID")]
         public int SSID { get; set; }
     }
 }

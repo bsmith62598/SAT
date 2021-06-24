@@ -20,6 +20,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Student.FirstName)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScheduledClass.ClassDesc)
+        </th>
         <th></th>
     </tr>
 
@@ -35,9 +38,12 @@
             @Html.DisplayFor(modelItem => item.Student.FirstName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EnrollmentId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EnrollmentId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EnrollmentId })
+            @Html.DisplayFor(modelItem => item.ScheduledClass.ClassDesc)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.EnrollmentId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.EnrollmentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.EnrollmentId })
         </td>
     </tr>
 }

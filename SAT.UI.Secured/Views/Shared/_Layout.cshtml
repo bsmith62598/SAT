@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Silverquill University</title>
     <link href="~/Content/layout.css" rel="stylesheet" type="text/css" media="all">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -19,8 +19,8 @@
             <header id="header" class="hoc clear">
                 <div id="logo">
                     <h1>@Html.ActionLink("Silverquill", "Index", "Home")</h1>
-                    <i class="fa fa-ra"></i>
-                    <p>Dapibus metus proin</p>
+
+                    <img src="~/Content/Images/MagicSymbols/orzhovResize (1).png" />
                 </div>
             </header>
         </div>
@@ -29,19 +29,32 @@
             <div id="LoginPartial" class="clear">
                 @Html.Partial("_LoginPartial")
             </div>
-            <nav id="mainav" class="hoc">
+            <div id="mainav" class="hoc">
                 <ul class="text-center">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Course", "Index", "Cours")</li>
-                    <li>
-                        <a class="drop" href="#">Students</a>
-                        <ul>
-                            <li>@Html.ActionLink("Student", "Index", "Students")</li>
-                            <li>@Html.ActionLink("Student Statuses", "Index", "StudentStatus") </li>
-                        </ul>
-                    </li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                    @if (User.IsInRole("Admin") || User.IsInRole("Scheduling"))
+                    {
+                        <li>@Html.ActionLink("Enrollments", "Index", "Enrollments")</li>
+                        <li>@Html.ActionLink("Scheduled Classes", "Index", "ScheduledClasses")</li>
+                        <li>
+                            <a class="drop" href="#">Students</a>
+                            <ul>
+                                <li>@Html.ActionLink("Students", "Index", "Students")</li>
+                                <li>@Html.ActionLink("Student Status", "Index", "StudentStatus")</li>
+                            </ul>
+                        </li>
+                    }
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Roles", "Index", "RolesAdmin")</li>
+                        <li>@Html.ActionLink("Users", "Index", "UsersAdmin")</li>
+                        <li>@Html.ActionLink("Course", "Index", "Cours")</li>
+                    }
                 </ul>
-            </nav>
+            </div>
         </div>
 
         @RenderBody()

@@ -50,9 +50,9 @@ namespace SAT.UI.Secured.Controllers
         // POST: ScheduledClasses/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize(Roles = "Admin, Scheduling")]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Scheduling")]
         public ActionResult Create([Bind(Include = "ScheduledClassId,CourseId,StartDate,EndDate,InstructorName,Location,SCSID")] ScheduledClass scheduledClass)
         {
             if (ModelState.IsValid)
@@ -88,9 +88,9 @@ namespace SAT.UI.Secured.Controllers
         // POST: ScheduledClasses/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize(Roles = "Admin, Scheduling")]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Scheduling")]
         public ActionResult Edit([Bind(Include = "ScheduledClassId,CourseId,StartDate,EndDate,InstructorName,Location,SCSID")] ScheduledClass scheduledClass)
         {
             if (ModelState.IsValid)
@@ -121,19 +121,23 @@ namespace SAT.UI.Secured.Controllers
         }
 
         // POST: ScheduledClasses/Delete/5
-
-        //ScheduledClassStatus SCSID = new ScheduledClassStatus;
-
-        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id, int scsid)
+        [Authorize(Roles = "Admin")]
+        public ActionResult DeleteConfirmed(int id)
         {
             ScheduledClass scheduledClass = db.ScheduledClasses.Find(id);
+            
+            if (scheduledClass.SCSID.Equals(4))
+            {
+                scheduledClass.SCSID = 1;
+            }
+            else
+            {
+                return RedirectToAction("Edit", new { id = scheduledClass.ScheduledClassId });
+            }
 
-            ScheduledClass.
-            //db.Entry(scheduledClass).State = EntityState.Modified;
-            db.ScheduledClasses.Remove(scheduledClass);
+            //db.ScheduledClasses.Remove(scheduledClass);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

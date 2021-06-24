@@ -7,19 +7,20 @@ using System.Threading.Tasks;
 
 namespace SAT.DATA.EF
 {
+    [MetadataType(typeof(StudentStatusMetaData))]
+    public partial class StudentStatus { }
+
     class StudentStatusMetaData
     {
         [Required]
-        [Display(Name = "SSID")]
         public int SSID { get; set; }
 
         [Required]
-        [Display(Name = "SS Name")]
+        [Display(Name ="SS Name")]
         public string SSName { get; set; }
 
         [Required]
         [Display(Name = "SS Description")]
         public string SSDescription { get; set; }
-
     }
 }

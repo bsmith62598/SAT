@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 
 namespace SAT.DATA.EF
 {
+    [MetadataType(typeof(EnrollmentMetaData))]
+    public partial class Enrollment
+    {
+
+    }
+
     public class EnrollmentMetaData
     {
         [Required]
@@ -25,13 +31,11 @@ namespace SAT.DATA.EF
         [Display(Name = "Enrollment Date")]
         public DateTime EnrollmentDate { get; set; }
 
-        [Required]
-        [Display(Name = "Scheduled Class")]
-        public string ScheduledClass { get; set; }
+        //[Required]
+        //[Display(Name = "Scheduled Class")]
+        //public ScheduledClass ScheduledClass { get; set; }
 
-        [Required]
-        [Display(Name = "Student")]
-        public string Student { get; set; }
-
+        //[Required]
+        //public Student Student { get; set; }
     }
 }

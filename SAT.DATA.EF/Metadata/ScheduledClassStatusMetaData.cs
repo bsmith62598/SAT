@@ -7,14 +7,16 @@ using System.Threading.Tasks;
 
 namespace SAT.DATA.EF
 {
-    class ScheduledClassStatusMetaData
+    [MetadataType(typeof(ScheduledClassStatusMetaData))]
+    public partial class ScheduledClassStatus { }
+
+    public class ScheduledClassStatusMetaData
     {
         [Required]
-        [Display(Name = "SCSID")]
         public int SCSID { get; set; }
 
         [Required]
-        [Display(Name = "SCS Name")]
-        public string SCSName { get; set; }
+        [Display(Name="SCS Name")]
+        public int SCSName { get; set; }
     }
 }

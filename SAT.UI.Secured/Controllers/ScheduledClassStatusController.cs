@@ -10,92 +10,92 @@ using SAT.DATA.EF;
 
 namespace SAT.UI.Secured.Controllers
 {
-    public class CoursController : Controller
+    public class ScheduledClassStatusController : Controller
     {
         private SATEntities db = new SATEntities();
-        
-        // GET: Cours
-        [Authorize(Roles = "Admin")]
+
+        // GET: ScheduledClassStatus
+        [Authorize(Roles = "Admin, Scheduling")]
         public ActionResult Index()
         {
-            return View(db.Courses.ToList());
+            return View(db.ScheduledClassStatuses.ToList());
         }
 
-        // GET: Cours/Details/5
-        [Authorize(Roles = "Admin")]
+        // GET: ScheduledClassStatus/Details/5
+        [Authorize(Roles = "Admin, Scheduling")]
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cours cours = db.Courses.Find(id);
-            if (cours == null)
+            ScheduledClassStatus scheduledClassStatus = db.ScheduledClassStatuses.Find(id);
+            if (scheduledClassStatus == null)
             {
                 return HttpNotFound();
             }
-            return View(cours);
+            return View(scheduledClassStatus);
         }
 
-        // GET: Cours/Create
-        [Authorize(Roles = "Admin")]
+        // GET: ScheduledClassStatus/Create
+        [Authorize(Roles = "Admin, Scheduling")]
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Cours/Create
+        // POST: ScheduledClassStatus/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Scheduling")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CourseId,CourseName,CourseDescription,CreditHours,Curriculum,Notes,IsActive")] Cours cours)
+        public ActionResult Create([Bind(Include = "SCSID,SCSName")] ScheduledClassStatus scheduledClassStatus)
         {
             if (ModelState.IsValid)
             {
-                db.Courses.Add(cours);
+                db.ScheduledClassStatuses.Add(scheduledClassStatus);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(cours);
+            return View(scheduledClassStatus);
         }
 
-        // GET: Cours/Edit/5
-        [Authorize(Roles = "Admin")]
+        // GET: ScheduledClassStatus/Edit/5
+        [Authorize(Roles = "Admin, Scheduling")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cours cours = db.Courses.Find(id);
-            if (cours == null)
+            ScheduledClassStatus scheduledClassStatus = db.ScheduledClassStatuses.Find(id);
+            if (scheduledClassStatus == null)
             {
                 return HttpNotFound();
             }
-            return View(cours);
+            return View(scheduledClassStatus);
         }
 
-        // POST: Cours/Edit/5
+        // POST: ScheduledClassStatus/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Scheduling")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CourseId,CourseName,CourseDescription,CreditHours,Curriculum,Notes,IsActive")] Cours cours)
+        public ActionResult Edit([Bind(Include = "SCSID,SCSName")] ScheduledClassStatus scheduledClassStatus)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cours).State = EntityState.Modified;
+                db.Entry(scheduledClassStatus).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(cours);
+            return View(scheduledClassStatus);
         }
 
-        // GET: Cours/Delete/5
+        // GET: ScheduledClassStatus/Delete/5
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
@@ -103,22 +103,22 @@ namespace SAT.UI.Secured.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cours cours = db.Courses.Find(id);
-            if (cours == null)
+            ScheduledClassStatus scheduledClassStatus = db.ScheduledClassStatuses.Find(id);
+            if (scheduledClassStatus == null)
             {
                 return HttpNotFound();
             }
-            return View(cours);
+            return View(scheduledClassStatus);
         }
 
-        // POST: Cours/Delete/5
+        // POST: ScheduledClassStatus/Delete/5
         [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Cours cours = db.Courses.Find(id);
-            db.Courses.Remove(cours);
+            ScheduledClassStatus scheduledClassStatus = db.ScheduledClassStatuses.Find(id);
+            db.ScheduledClassStatuses.Remove(scheduledClassStatus);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -16,7 +16,7 @@ namespace SAT.DATA.EF
     public class CourseMetaData
     {
         [Required]
-        [Display (Name = "Course Id")]
+        [Display(Name = "Course ID")]
         public int CourseId { get; set; }
 
         [Required]
@@ -30,14 +30,13 @@ namespace SAT.DATA.EF
         [Display(Name = "Credit Hours")]
         public byte CreditHours { get; set; }
 
-        [Display]
         public string Curriculum { get; set; }
 
-        [Display]
         public string Notes { get; set; }
 
         [Required]
         [Display(Name = "Is Active?")]
         public bool IsActive { get; set; }
+
     }
 }
